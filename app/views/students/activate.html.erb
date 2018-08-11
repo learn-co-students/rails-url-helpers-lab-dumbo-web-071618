@@ -1,0 +1,10 @@
+<!-- this should be a form -->
+
+<%= form_for @student do |f| %>
+  <%= f.label :activate %>
+  <%= f.radio_button :active, 'true' %>
+
+  <%= f.label :deactivate %>
+  <%= f.radio_button :active, 'false' %>
+  <%= f.submit :submit %>
+<% end %>
