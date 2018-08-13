@@ -7,7 +7,18 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = Student.find(params[:id])    
+    @student = Student.find(params[:id])
+    # binding.pry
+    @student.active ? @message = "This student is currently active." : @message = "This student is currently inactive."
+  end
+
+  def activate
+    # binding.pry
+    @student = Student.find(params[:id])
+    @student.active ? @student.active = false : @student.active = true
+    @student.save
+    # binding.pry
+    redirect_to :action => 'show'
   end
 
   private
